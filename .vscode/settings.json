@@ -11,5 +11,12 @@
     "javascriptreact",
     "typescript",
     "vue"
+  ],
+  "vue3snippets.enable-compile-vue-file-on-did-save-code": false,
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "cSpell.words": [
+    "vueuse"
   ]
 }
