@@ -1,57 +1,31 @@
 <script setup>
-
-const  form = defineModel('form',{type:Object})
-const emit = defineEmits(['create']) // mengacu pada createFriendDialog
+const form = defineModel("form", { type: Object });
+const emit = defineEmits(["create"]); // mengacu pada createFriendDialog
 </script>
 <template>
   <q-dialog>
     <q-card>
       <q-card-section>
-        <q-form
-          class="q-gutter-y-md"
-          @submit="emit('create')"
-        >
+        <q-form class="q-gutter-y-md" @submit="emit('create')">
           <!-- name: text input -->
-          <q-input
-            v-model="form.name"
-            label="Name"
-            filled
-          />
+          <q-input v-model="form.name" label="Name" filled />
           <!-- email:text input -->
-          <q-input
-            v-model="form.email"
-            label="Email"
-            filled
-          />
+          <q-input v-model="form.email" label="Email" filled />
           <!-- age: input -->
-          <q-input
-            v-model="form.age"
-            label="Age"
-            type="number"
-            filled
-          />
+          <q-input v-model="form.age" label="Age" type="number" filled />
           <!-- isHuman:checkbok -->
-          <q-checkbox
-            v-model="form.is_human"
-            label="Is.Human"
-          />
+          <q-checkbox v-model="form.is_human" label="Is.Human" />
           <!-- Operatform.ing System: select: -->
           <q-select
             v-model="form.operating_system"
             outlined
-            :options="['Windows','Mac','Linux']"
+            :options="['Windows', 'Mac', 'Linux']"
           />
           <!-- color:form. picker> -->
-          <q-color
-            v-model="form.color"
-          />
+          <q-color v-model="form.color" />
+
           <!-- create button: -->
-          <q-btn
-            label="Create"
-            color="primary"
-            class="full-width"
-            type="submit"
-          />
+          <q-btn label="Create" color="primary" class="full-width" type="submit" />
         </q-form>
       </q-card-section>
     </q-card>
