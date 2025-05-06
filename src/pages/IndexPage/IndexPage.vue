@@ -19,7 +19,7 @@ const showCreateDialog = ref(false);
 </script>
 <template>
   <q-page class="row flex-center">
-    <q-table :columns :rows="Object.values(friends)" title="Friends">
+    <q-table :columns="columns" :rows="Object.values(friends)" title="Friends">
       <template #top-right>
         <q-btn :icon="mdiPlus" round color="primary" @click="showCreateDialog = true" />
       </template>
