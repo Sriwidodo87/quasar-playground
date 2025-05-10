@@ -3,11 +3,13 @@
 const routes = [
   {
     path: '/',
+
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: '',component: () => import('src/pages/IndexPage/IndexPage.vue') },
+      { path: '', name:"home",component: () => import('src/pages/IndexPage/IndexPage.vue') },
 
        { path: 'friends',
+        name:"friends",
         component: () => import('pages/FriendsPage.vue')
       },
        { path: ':friendsListId/friends',

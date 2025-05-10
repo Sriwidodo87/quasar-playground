@@ -22,9 +22,7 @@ function toggleLeftDrawer() {
           @click="toggleLeftDrawer"
         />
 
-        <q-toolbar-title>
-          Quasar Playground
-        </q-toolbar-title>
+        <q-toolbar-title> Quasar Playground </q-toolbar-title>
       </q-toolbar>
     </q-header>
 
@@ -34,7 +32,16 @@ function toggleLeftDrawer() {
       side="left"
       bordered
     >
-      <!-- drawer content -->
+      <q-list>
+        <q-item :to="{ name: 'home' }">
+          <q-item-section> Home </q-item-section>
+        </q-item>
+      </q-list>
+      <q-list>
+        <q-item :to="{ name: 'friends' }">
+          <q-item-section> Friends </q-item-section>
+        </q-item>
+      </q-list>
     </q-drawer>
 
     <q-page-container>
