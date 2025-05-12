@@ -19,9 +19,15 @@ const showCreateDialog = ref(false);
 </script>
 <template>
   <q-page class="row flex-center">
+    <h2 class="text-weight-bolder full-width text-center">Lorem Ipsum</h2>
     <q-table :columns="columns" :rows="Object.values(friends)" title="Friends">
       <template #top-right>
-        <q-btn :icon="mdiPlus" round color="primary" @click="showCreateDialog = true" />
+        <q-btn
+          :icon="mdiPlus"
+          round
+          color="primary"
+          @click="showCreateDialog = true"
+        />
       </template>
     </q-table>
 
