@@ -6,6 +6,9 @@ import { uid } from "quasar";
 
 import { mdiPlus } from "@quasar/extras/mdi-v7";
 import CreateFriendDialog from "./CreateFriendDialog.vue";
+import wretch from "wretch";
+import { api } from "src/boot/wretch";
+
 const friends = useLocalStorage("friends", {});
 
 const form = ref({});
@@ -16,10 +19,15 @@ function createFriend() {
   showCreateDialog.value = false;
 }
 const showCreateDialog = ref(false);
+function fetchPosts() {
+  api.get("posts");
+}
 </script>
+
 <template>
   <q-page class="row q-col-gutter-xl">
     <div class="col-xs-12 col-sm-6 col-lg-4">
+      <q-btn label="Posts" @click="fetchPosts()" />
       <q-table
         :columns="columns"
         :rows="Object.values(friends)"
