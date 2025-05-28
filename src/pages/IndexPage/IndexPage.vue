@@ -20,31 +20,89 @@ const showCreateDialog = ref(false);
 <template>
   <q-page class="row q-col-gutter-xl">
     <div class="col-xs-12 col-sm-6 col-lg-4">
-      <q-card>
-        <q-card-section>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, libero amet
-          perspiciatis doloribus velit, excepturi molestiae atque quaerat adipisci aliquam
-          at, sed maxime tempora cupiditate unde dicta placeat. Facere, aspernatur.
-        </q-card-section>
-      </q-card>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-lg-4">
-      <q-table :columns="columns" :rows="Object.values(friends)" title="Friends">
+      <q-table
+        :columns="columns"
+        :rows="Object.values(friends)"
+        title="Friends"
+      >
         <template #top-right>
-          <q-btn :icon="mdiPlus" round color="primary" @click="showCreateDialog = true" />
+          <q-btn
+            :icon="mdiPlus"
+            round
+            color="primary"
+            @click="showCreateDialog = true"
+          />
         </template>
       </q-table>
     </div>
 
-    <div class="col-xs-12 col-lg-4">
-      <q-card>
-        <q-card-section>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, libero amet
-          perspiciatis doloribus velit, excepturi molestiae atque quaerat adipisci aliquam
-          at, sed maxime tempora cupiditate unde dicta placeat. Facere, aspernatur.
-        </q-card-section>
-      </q-card>
+    <div class="col-12">
+      <div
+        class="q-pa-lg q-ma-xl shadow-3 rounded-borders relative-position some-card scroll"
+        style="height: 400px"
+      >
+        <div>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt magnam
+          tempora esse amet maiores placeat voluptatibus reprehenderit, facere
+          numquam cumque saepe aperiam minima exercitationem nostrum nisi
+          delectus. Eos, enim recusandae. Lorem ipsum dolor sit amet consectetur
+          adipisicing elit. Sunt magnam tempora esse amet maiores placeat
+          voluptatibus reprehenderit, facere numquam cumque saepe aperiam minima
+          exercitationem nostrum nisi delectus. Eos, enim recusandae. Lorem
+          ipsum dolor sit amet consectetur adipisicing elit. Sunt magnam tempora
+          esse amet maiores placeat voluptatibus reprehenderit, facere numquam
+          cumque saepe aperiam minima exercitationem nostrum nisi delectus. Eos,
+          enim recusandae. Lorem ipsum dolor sit amet consectetur adipisicing
+          elit. Sunt magnam tempora esse amet maiores placeat voluptatibus
+          reprehenderit, facere numquam cumque saepe aperiam minima
+          exercitationem nostrum nisi delectus. Eos, enim recusandae. Lorem
+          ipsum dolor sit amet consectetur adipisicing elit. Sunt magnam tempora
+          esse amet maiores placeat voluptatibus reprehenderit, facere numquam
+          cumque saepe aperiam minima exercitationem nostrum nisi delectus. Eos,
+          enim recusandae. Lorem ipsum dolor sit amet consectetur adipisicing
+          elit. Sunt magnam tempora esse amet maiores placeat voluptatibus
+          reprehenderit, facere numquam cumque saepe aperiam minima
+          exercitationem nostrum nisi delectus. Eos, enim recusandae. Lorem
+          ipsum dolor sit amet consectetur adipisicing elit. Sunt magnam tempora
+          esse amet maiores placeat voluptatibus reprehenderit, facere numquam
+          cumque saepe aperiam minima exercitationem nostrum nisi delectus. Eos,
+          enim recusandae. Lorem ipsum dolor sit amet consectetur adipisicing
+          elit. Sunt magnam tempora esse amet maiores placeat voluptatibus
+          reprehenderit, facere numquam cumque saepe aperiam minima
+          exercitationem nostrum nisi delectus. Eos, enim recusandae. Lorem
+          ipsum dolor sit amet consectetur adipisicing elit. Sunt magnam tempora
+          esse amet maiores placeat voluptatibus reprehenderit, facere numquam
+          cumque saepe aperiam minima exercitationem nostrum nisi delectus. Eos,
+          enim recusandae. Lorem ipsum dolor sit amet consectetur adipisicing
+          elit. Sunt magnam tempora esse amet maiores placeat voluptatibus
+          reprehenderit, facere numquam cumque saepe aperiam minima
+          exercitationem nostrum nisi delectus. Eos, enim recusandae. Lorem
+          ipsum dolor sit amet consectetur adipisicing elit. Sunt magnam tempora
+          esse amet maiores placeat voluptatibus reprehenderit, facere numquam
+          cumque saepe aperiam minima exercitationem nostrum nisi delectus. Eos,
+          enim recusandae. Lorem ipsum dolor sit amet consectetur adipisicing
+          elit. Sunt magnam tempora esse amet maiores placeat voluptatibus
+          reprehenderit, facere numquam cumque saepe aperiam minima
+          exercitationem nostrum nisi delectus. Eos, enim recusandae. Lorem
+          ipsum dolor sit amet consectetur adipisicing elit. Sunt magnam tempora
+          esse amet maiores placeat voluptatibus reprehenderit, facere numquam
+          cumque saepe aperiam minima exercitationem nostrum nisi delectus. Eos,
+          enim recusandae. Lorem ipsum dolor sit amet consectetur adipisicing
+          elit. Sunt magnam tempora esse amet maiores placeat voluptatibus
+          reprehenderit, facere numquam cumque saepe aperiam minima
+          exercitationem nostrum nisi delectus. Eos, enim recusandae. Lorem
+          ipsum dolor sit amet consectetur adipisicing elit. Sunt magnam tempora
+          esse amet maiores placeat voluptatibus reprehenderit, facere numquam
+          cumque saepe aperiam minima exercitationem nostrum nisi delectus. Eos,
+          enim recusandae. Lorem ipsum dolor sit amet consectetur adipisicing
+          elit. Sunt magnam tempora esse amet maiores placeat voluptatibus
+          reprehenderit, facere numquam cumque saepe aperiam minima
+          exercitationem nostrum nisi delectus. Eos, enim recusandae.
+        </div>
+        <q-btn fab :icon="mdiPlus" color="blue" class="full-width" />
+      </div>
     </div>
+
     <CreateFriendDialog
       v-model="showCreateDialog"
       v-model:form="form"
@@ -52,3 +110,8 @@ const showCreateDialog = ref(false);
     />
   </q-page>
 </template>
+<style lang="scss">
+.mobile .some-card {
+  background-color: rebeccapurple;
+}
+</style>
