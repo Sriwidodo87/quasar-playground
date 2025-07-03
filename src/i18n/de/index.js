@@ -4,6 +4,6 @@
 export default {
 
   friends:{
-    tableTitle:'My Friends'
+    tableTitle:'meine Freunde'
   }
 }

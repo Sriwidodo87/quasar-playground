@@ -3014,7 +3014,7 @@ qs@6.13.0:
   dependencies:
     side-channel "^1.0.6"
 
-quasar@^2.16.0:
+quasar@^2.16.0, quasar@^2.18.1:
   version "2.18.1"
   resolved "https://registry.npmjs.org/quasar/-/quasar-2.18.1.tgz"
   integrity sha512-db/P64Mzpt1uXJ0MapaG+IYJQ9hHDb5KtTCoszwC78DR7sA+Uoj7nBW2EytwYykIExEmqavOvKrdasTvqhkgEg==
