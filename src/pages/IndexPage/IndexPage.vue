@@ -63,14 +63,16 @@ function fetchPosts3(){
       <q-btn @click="fetchPosts3()">
         AXIOS 3
       </q-btn> -->
-
+    <h1 class="text-3xl font-bold underline">
+      Hello world!
+    </h1>
     <div class="col-xs-12 col-sm-6 col-lg-4">
       <q-select
         v-model="locale"
         :options="['en-US','de']"
         label="language"
         filled
-        class="ma-50px"
+        class="ma-lg"
       />
 
       <q-table
