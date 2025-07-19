@@ -5,12 +5,14 @@ import { useLocalStorage } from "@vueuse/core";
 import { uid } from "quasar";
 import { mdiPlus } from "@quasar/extras/mdi-v7";
 import CreateFriendDialog from "./CreateFriendDialog.vue";
-// import wretch from "wretch";
+import wretch from "wretch";
 // import { api } from "src/boot/wretch";
-// import { api } from "src/boot/axios";
+import { api } from "src/boot/axios";
 import { useI18n } from 'vue-i18n';
-const friends = useLocalStorage("friends", {});
 
+
+
+const friends = useLocalStorage("friends", {});
 const form = ref({});
 
 const {locale} = useI18n();
@@ -25,26 +27,25 @@ function createFriend() {
   showCreateDialog.value = false;
 }
 
-// const  {locale}  = useI18n()
-// locale.value='de'
+
 
 const showCreateDialog = ref(false);
-// function fetchPosts() {
-//   api.get("posts");
-// }
+function fetchPosts() {
+  api.get("posts");
+}
 
-// defineOptions({
-//  methods:{
-//    fetchPosts2() {
-//   this.$axios.get('https://jsonplaceholder.typicode.com/posts')
-//  }
+defineOptions({
+ methods:{
+   fetchPosts2() {
+  this.$axios.get('https://jsonplaceholder.typicode.com/posts')
+ }
 
-//  }
-// })
+ }
+})
 
-// function fetchPosts3(){
-//   api.get("posts")
-// }
+function fetchPosts3(){
+  api.get("posts")
+}
 
 
 
@@ -52,12 +53,7 @@ const showCreateDialog = ref(false);
 
 <template>
   <q-page class="row q-col-gutter-xl">
-    <div class="col-xs-12 col-sm-6 col-lg-4">
-      <q-select
-        v-model="locale"
-        :options="['en-US','de']"
-      />
-      <!-- <q-btn"
+    <!-- <q-btn"
         label="Posts"
         @click="fetchPosts()"
       />
@@ -67,6 +63,16 @@ const showCreateDialog = ref(false);
       <q-btn @click="fetchPosts3()">
         AXIOS 3
       </q-btn> -->
+
+    <div class="col-xs-12 col-sm-6 col-lg-4">
+      <q-select
+        v-model="locale"
+        :options="['en-US','de']"
+        label="language"
+        filled
+        class="ma-50px"
+      />
+
       <q-table
         :columns="columns"
         :rows="Object.values(friends)"
