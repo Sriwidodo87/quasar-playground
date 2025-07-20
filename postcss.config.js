@@ -1,7 +1,7 @@
 // https://github.com/michael-ciniawsky/postcss-load-config
 
 import autoprefixer from 'autoprefixer'
-import tailwind from 'tailwindcss'
+import tailwind from "tailwindcss"
 // import rtlcss from 'postcss-rtlcss'
 
 export default {
@@ -20,6 +20,7 @@ export default {
       ]
     }),
     tailwind()
+
 
     // https://github.com/elchininet/postcss-rtlcss
     // If you want to support RTL css, then
