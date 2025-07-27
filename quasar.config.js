@@ -62,7 +62,7 @@ export default defineConfig((ctx) => {
       // viteVuePluginOptions: {},
 
       vitePlugins: [
-        ['unocss/vite',{}],
+        // ['unocss/vite',{}],
         [
           "@intlify/unplugin-vue-i18n/vite",
           {

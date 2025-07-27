@@ -1,0 +1,113 @@
+Scanning devices 
+
+1. yarn add @capacitor-community/bluetooth-le  or npm install @capacitor-community/bluetooth-le
+2. cd src-capacitor/
+3. yarn dev - android
+
+// unpluginn uno css from quasar config js
+
+4. buat folder di pages dengan nama ScanPage
+	buta file ScanPage.vue
+
+<script setup>
+</script>
+
+
+
+<template>
+  <q-page padding>
+    Scan Page
+  </q-page>
+</template>
+
+
+5. membuat route pada route JS
+
+6. edit ScanPage.vue
+	
+<script setup>
+	import {BleClient } from '@capacitor-community/bluetooth-le'
+	import {ref} from 'vue'
+
+const scanResult =ref([])
+
+async function scan(){
+await	BleClient.initialize()
+await 	BleClient.requestLEScan({},
+result =>{
+scanResult.value.Push(result)
+}
+
+)
+
+
+}
+
+scan()
+</script>
+
+scan Page
+
+<template>
+<q-page padding>
+<pre> {{scanResults}} </pre>
+<q-page>
+<template>
+
+7. create folder composables  dan bikin  file  useBluetoothScanner.js
+
+	import {BleClient } from '@capacitor-community/bluetooth-le'
+	import {ref} from 'vue'
+export function useBluetoothSacnner(){
+const scanResult =ref([])
+
+async function scan(){
+await	BleClient.initialize()
+scanning.value = true
+await 	BleClient.requestLEScan({},
+result =>{
+scanResult.value.Push(result)
+}
+)
+
+setTimeOut(async () => {
+	await BleClient.stopLEScan()
+	scanning.value = false
+},7000)
+}
+
+scan()
+
+return {
+
+scanResults,
+scan
+}
+
+}
+
+
+8. edit scanPage.vue
+
+<script setup>
+	import {useBluetoothScanner} from 'src/composables/'
+
+const {
+scan,
+scanResults,
+scanning
+} = useBluetoothScanner()
+</script>
+
+scan Page
+
+<template>
+<q-page padding>
+<pre> {{scanResults}} </pre>
+<q-page>
+<template>
+
+
+
+
+

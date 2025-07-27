@@ -15,7 +15,11 @@ const routes = [
        { path: ':friendsListId/friends',
         props:true,
         component: () => import('pages/FriendsPage.vue')
-      }
+      },
+       { path: 'scan',
+        name:"scan",
+        component: () => import('pages/ScanPage/ScanPage.vue')
+      },
     ]
   },
 

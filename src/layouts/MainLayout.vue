@@ -42,6 +42,11 @@ function toggleLeftDrawer() {
           <q-item-section> Friends </q-item-section>
         </q-item>
       </q-list>
+      <q-list>
+        <q-item :to="{ name: 'scan' }">
+          <q-item-section> Scan For Friends </q-item-section>
+        </q-item>
+      </q-list>
     </q-drawer>
 
     <q-page-container>
