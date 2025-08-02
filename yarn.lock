@@ -67,14 +67,14 @@
   resolved "https://registry.npmjs.org/@bufbuild/protobuf/-/protobuf-2.2.5.tgz"
   integrity sha512-/g5EzJifw5GF8aren8wZ/G5oMuPoGeS6MQD3ca8ddcvdXR5UELUfdTZITCGNhNXynY/AYl3Z4plmxdj/tRl/hQ==
 
-"@capacitor-community/bluetooth-le@^6.0.0-0":
-  version "6.0.0-0"
-  resolved "https://registry.npmjs.org/@capacitor-community/bluetooth-le/-/bluetooth-le-6.0.0-0.tgz"
-  integrity sha512-wTDu2HHWaHpK5oJ6l1LYjwQ/Ym3vr8RN/m3KCT/3yTtncBCK3i09pqNW+jTLxUIWfYe8t/stE/sOMp+Q3ggtYQ==
+"@capacitor-community/bluetooth-le@^7.1.1":
+  version "7.1.1"
+  resolved "https://registry.npmjs.org/@capacitor-community/bluetooth-le/-/bluetooth-le-7.1.1.tgz"
+  integrity sha512-Z5beNgHNQodKaWrjplYUHji3f15nU2/JCA+INzgybK6mBssq/WsHzBw8eBP/CXzAv1XZD6tXMZlLumzAXgZuhw==
   dependencies:
     "@types/web-bluetooth" "^0.0.20"
 
-"@capacitor/core@next":
+"@capacitor/core@>=7.0.0":
   version "7.4.2"
   resolved "https://registry.npmjs.org/@capacitor/core/-/core-7.4.2.tgz"
   integrity sha512-akCf9A1FUR8AWTtmgGjHEq6LmGsjA2U7igaJ9PxiCBfyxKqlDbuGHrlNdpvHEjV5tUPH3KYtkze6gtFcNKPU9A==
@@ -160,9 +160,9 @@
   integrity sha512-RBMg5FRL0I0gs51M/guSAj5/e14VQ4tpZnQNWwuDT66P14I43ItmPfIZRhO9fUVIPOAQXU47atlywZ/czoqFPA==
 
 "@eslint/plugin-kit@^0.3.1":
-  version "0.3.3"
-  resolved "https://registry.npmjs.org/@eslint/plugin-kit/-/plugin-kit-0.3.3.tgz"
-  integrity sha512-1+WqvgNMhmlAambTvT3KPtCl/Ibr68VldY2XY40SL1CE0ZXiakFR/cbTspaF5HsnpDMvcYYoJHfl4980NBjGag==
+  version "0.3.4"
+  resolved "https://registry.npmjs.org/@eslint/plugin-kit/-/plugin-kit-0.3.4.tgz"
+  integrity sha512-Ul5l+lHEcw3L5+k8POx6r74mxEYKG5kOb6Xpy2gCRW6zweT6TEhAf8vhxGgjhqrd/VO/Dirhsb+1hNpD1ue9hw==
   dependencies:
     "@eslint/core" "^0.15.1"
     levn "^0.4.1"
