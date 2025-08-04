@@ -63,3 +63,16 @@ app.on('activate', () => {
     createWindow()
   }
 })
+
+// import { ipcMain,Notification } from 'electron'
+
+// function showNotification(_event,{title, body }){
+//   const notification = new Notification({title, body})
+//   notification.show()
+// }
+
+// // function showNotification (_event,{title,body}) {
+// //    const customnotification =new Notification({title,body})
+// //    customnotification.show
+// // }
+// ipcMain.handle('notification:show',showNotification)

@@ -9,29 +9,15 @@ function toggleLeftDrawer() {
 </script>
 <template>
   <q-layout view="hHh LpR fFf">
-    <q-header
-      elevated
-      class="bg-primary text-white"
-    >
+    <q-header elevated class="bg-primary text-white">
       <q-toolbar>
-        <q-btn
-          dense
-          flat
-          round
-          :icon="mdiMenu"
-          @click="toggleLeftDrawer"
-        />
+        <q-btn dense flat round :icon="mdiMenu" @click="toggleLeftDrawer" />
 
         <q-toolbar-title> Quasar Playground </q-toolbar-title>
       </q-toolbar>
     </q-header>
 
-    <q-drawer
-      v-model="leftDrawerOpen"
-      show-if-above
-      side="left"
-      bordered
-    >
+    <q-drawer v-model="leftDrawerOpen" show-if-above side="left" bordered>
       <q-list>
         <q-item :to="{ name: 'home' }">
           <q-item-section> Home </q-item-section>
@@ -47,22 +33,20 @@ function toggleLeftDrawer() {
           <q-item-section> Scan For Friends </q-item-section>
         </q-item>
       </q-list>
+      <q-list>
+        <q-item :to="{ name: 'geolocation' }">
+          <q-item-section>Geolocation </q-item-section>
+        </q-item>
+      </q-list>
     </q-drawer>
 
     <q-page-container>
       <router-view />
     </q-page-container>
 
-    <q-footer
-      elevated
-      class="bg-grey-8 text-white"
-    >
+    <q-footer elevated class="bg-grey-8 text-white">
       <q-toolbar class="flex-center">
-        <q-btn
-          flat
-          :icon="mdiAccount"
-          size="lg"
-        />
+        <q-btn flat :icon="mdiAccount" size="lg" />
       </q-toolbar>
     </q-footer>
   </q-layout>
