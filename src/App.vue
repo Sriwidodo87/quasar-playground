@@ -1,12 +1,13 @@
 <script setup>
 import { mdiMicrosoft } from "@quasar/extras/mdi-v7";
-import { ref } from "vue";
 
-const loggIn = ref(false);
+import { useMsal } from "./stores/useMsal";
+
+const msal = useMsal();
 </script>
 
 <template>
-  <router-view v-if="loggIn" />
+  <router-view v-if="msal.loggedIn" />
 
   <div
     style="height: 100vh"
@@ -16,7 +17,7 @@ const loggIn = ref(false);
       label="Login"
       :icon="mdiMicrosoft"
       color="blue"
-      @click="loggIn = true"
+      @click="msal.login()"
     />
   </div>
 </template>
