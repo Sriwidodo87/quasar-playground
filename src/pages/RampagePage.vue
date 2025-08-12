@@ -1,4 +1,5 @@
 <script setup>
+import { mdiBook, mdiEmail, mdiFileDocument, mdiPlus } from "@quasar/extras/mdi-v7";
 import { ref } from "vue";
 
 const showDialog = ref(false);
@@ -6,7 +7,7 @@ const showDialog = ref(false);
 
 <template>
   <q-page padding class="flex flex-center">
-    <q-circular-progress
+    <!-- <q-circular-progress
       :value="100"
       :min="0"
       :max="200"
@@ -17,6 +18,32 @@ const showDialog = ref(false);
       show-value=""
     >
       <q-chip :label="100" text-color="white" color="cyan" />
-    </q-circular-progress>
+    </q-circular-progress> -->
+
+    <q-page-sticky position="bottom-right" :offset="[28, 28]">
+      <q-fab :icon="mdiPlus" color="primary" fab direction="up">
+        <q-fab-action
+          :icon="mdiEmail"
+          color="blue"
+          external-label
+          label="Email"
+          label-position="left"
+        />
+        <q-fab-action
+          :icon="mdiFileDocument"
+          color="grey"
+          external-label
+          label="Document"
+          label-position="left"
+        />
+        <q-fab-action
+          :icon="mdiBook"
+          color="black"
+          external-label
+          label="Book"
+          label-position="left"
+        />
+      </q-fab>
+    </q-page-sticky>
   </q-page>
 </template>
