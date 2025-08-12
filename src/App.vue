@@ -7,7 +7,8 @@ const msal = useMsal();
 </script>
 
 <template>
-  <router-view v-if="msal.loggedIn" />
+  <router-view />
+  <!-- <router-view v-if="loggIn" />
 
   <div
     style="height: 100vh"
@@ -19,5 +20,5 @@ const msal = useMsal();
       color="blue"
       @click="msal.login()"
     />
-  </div>
+  </div> -->
 </template>

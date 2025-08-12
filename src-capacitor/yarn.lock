@@ -9,7 +9,11 @@
   dependencies:
     "@types/web-bluetooth" "^0.0.20"
 
+<<<<<<< HEAD
+"@capacitor/android@^7.4.2":
+=======
 "@capacitor/android@^7.0.0":
+>>>>>>> ca286e65f4274de9fa41e29a98398024cfcbf47b
   version "7.4.2"
   resolved "https://registry.yarnpkg.com/@capacitor/android/-/android-7.4.2.tgz#8fa1b6fbedfbb8506df3444dddaea75cc09ee8a9"
   integrity sha512-FZ7M9NwFkljR7EP5eXiE32mAIfZNcYw2CzRMCG3rQu0u0ZaIoeOeq5/oK4YcDnGpNmu8jpngKJqZ+9OiSQSwDg==

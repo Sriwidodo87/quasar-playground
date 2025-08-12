@@ -17,7 +17,10 @@ async function getCurrentLocation() {
 </script>
 <template>
   <q-page>
-    <q-btn label="Get Current Location" @click="getCurrentLocation()" />
+    <q-btn
+      label="Get Current Location"
+      @click="getCurrentLocation()"
+    />
     <q-btn
       :icon="mdiMap"
       color="red"

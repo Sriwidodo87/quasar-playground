@@ -2,8 +2,19 @@
 
 const routes = [
   {
-    path: '/',
+    path: '/rampage',
+    component: () => import('layouts/RampageLayout.vue'),
+    children:[
+      {
+        path: '',
+        name:"rampage",
+        component: () => import('src/pages/RampagePage.vue')
+      }
+    ]
+  },
 
+  {
+    path: '/',
     component: () => import('layouts/MainLayout.vue'),
     children: [
       { path: '', name:"home",component: () => import('src/pages/IndexPage/IndexPage.vue') },
