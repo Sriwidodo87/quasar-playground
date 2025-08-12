@@ -53,7 +53,7 @@ const showDialog = ref(false);
     </q-page-sticky> -->
 
     <!-- <q-spinner-hearts color="primary" size="xl" /> -->
-    <q-banner class="bg-secondary text-white">
+    <!-- <q-banner class="bg-secondary text-white">
       <template #avatar>
         <q-avatar color="white" text-color="grey-10" :icon="mdiInformationBoxOutline" />
       </template>
@@ -62,6 +62,18 @@ const showDialog = ref(false);
         <q-btn label="Sign In" color="white" text-color="grey-10" />
         <q-btn label="Dismiss" flat color="white" text-color="grey-10" />
       </template>
-    </q-banner>
+    </q-banner> -->
+    <q-card>
+      <q-card-section>
+        <h5>Title</h5>
+        <q-separator color="blue" size="4px" />
+      </q-card-section>
+      <q-card-section>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis voluptatem
+        consequatur maiores. Cupiditate, adipisci vero exercitationem ipsum distinctio
+        possimus ea laboriosam incidunt perferendis vitae dignissimos quod quo eos cum
+        similique.
+      </q-card-section>
+    </q-card>
   </q-page>
 </template>
