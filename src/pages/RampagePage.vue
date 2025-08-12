@@ -20,7 +20,7 @@ const showDialog = ref(false);
       <q-chip :label="100" text-color="white" color="cyan" />
     </q-circular-progress> -->
 
-    <q-page-sticky position="bottom-right" :offset="[28, 28]">
+    <!-- <q-page-sticky position="bottom-right" :offset="[28, 28]">
       <q-fab :icon="mdiPlus" color="primary" fab direction="up">
         <q-fab-action
           :icon="mdiEmail"
@@ -44,6 +44,10 @@ const showDialog = ref(false);
           label-position="left"
         />
       </q-fab>
-    </q-page-sticky>
+    </q-page-sticky> -->
+
+    <q-spinner-hearts color="primary" size="xl">
+      <!--  -->
+    </q-spinner-hearts>
   </q-page>
 </template>
