@@ -6,7 +6,8 @@ const loggIn = ref(false);
 </script>
 
 <template>
-  <router-view v-if="loggIn" />
+  <router-view />
+  <!-- <router-view v-if="loggIn" />
 
   <div
     style="height: 100vh"
@@ -18,5 +19,5 @@ const loggIn = ref(false);
       color="blue"
       @click="loggIn = true"
     />
-  </div>
+  </div> -->
 </template>
