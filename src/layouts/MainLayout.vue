@@ -36,7 +36,7 @@ const msal = useMsal();
     </q-header>
 
     <q-drawer
-      v-model="leftDrawerOpen"
+      v-model="lefQtDrawerOpen"
       show-if-above
       side="left"
       bordered
