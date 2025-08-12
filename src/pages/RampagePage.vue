@@ -12,7 +12,15 @@ const showDialog = ref(false);
 </script>
 
 <template>
-  <q-page padding class="flex flex-center">
+  <q-page padding class="row justify-center item-start q-gutter-lg">
+    <q-intersection
+      v-for="index in 400"
+      :key="index"
+      style="width: 200px; height: 300px"
+      transition="scale"
+    >
+      <img src="https://picsum.photos/id/237/200/300" />
+    </q-intersection>
     <!-- <q-circular-progress
       :value="100"
       :min="0"
@@ -63,7 +71,7 @@ const showDialog = ref(false);
         <q-btn label="Dismiss" flat color="white" text-color="grey-10" />
       </template>
     </q-banner> -->
-    <q-card>
+    <!-- <q-card>
       <q-card-section>
         <h5>Title</h5>
         <q-separator color="blue" size="4px" />
@@ -74,6 +82,6 @@ const showDialog = ref(false);
         possimus ea laboriosam incidunt perferendis vitae dignissimos quod quo eos cum
         similique.
       </q-card-section>
-    </q-card>
+    </q-card> -->
   </q-page>
 </template>
