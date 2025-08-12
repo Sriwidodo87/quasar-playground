@@ -2,32 +2,57 @@
 import { ref } from "vue";
 // import { friends } from './friends';
 import { useLocalStorage } from "@vueuse/core";
-import { uid } from "quasar";
+import { Notify, uid, Dialog, Loading } from "quasar";
 import { mdiPlus } from "@quasar/extras/mdi-v7";
 import CreateFriendDialog from "./CreateFriendDialog.vue";
 import wretch from "wretch";
 // import { api } from "src/boot/wretch";
 import { api } from "src/boot/axios";
-import { useI18n } from 'vue-i18n';
-
-
+import { useI18n } from "vue-i18n";
+import isEmail from "validator/lib/isEmail";
 
 const friends = useLocalStorage("friends", {});
-const form = ref({});
+const form = ref({
+  name: "Alexander",
+  email: "alex@example.com",
+  age: 38,
+  is_human: true,
+  operating_system: "Linux",
+});
 
-const {locale} = useI18n();
-locale.value='de';
-
-
+const { locale } = useI18n();
+locale.value = "de";
 
 function createFriend() {
-  let id = uid();
-  form.value.id = uid;
-  friends.value[id] = form.value;
-  showCreateDialog.value = false;
+  Dialog.create({
+    title: "Are You Sure ?",
+    message: `${form.value.name} Really Your Friend ?`,
+    ok: { label: "Yea, For sure!" },
+    cancel: { label: "Hmm,I'll think on it ....", flat: true },
+  })
+    .onOk(() => {
+      Loading.show();
+
+      setTimeout(() => {
+        let id = uid();
+        form.value.id = uid;
+        friends.value[id] = form.value;
+        showCreateDialog.value = false;
+        form.value = {};
+
+        Loading.hide();
+
+        Notify.create({
+          message: "Friend Created",
+          icon: mdiPlus,
+          color: "positive",
+        });
+      }, 5_000);
+    })
+    .onCancel(() => {
+      showCreateDialog.value = false;
+    });
 }
-
-
 
 const showCreateDialog = ref(false);
 function fetchPosts() {
@@ -35,20 +60,26 @@ function fetchPosts() {
 }
 
 defineOptions({
- methods:{
-   fetchPosts2() {
-  this.$axios.get('https://jsonplaceholder.typicode.com/posts')
- }
+  methods: {
+    fetchPosts2() {
+      this.$axios.get("https://jsonplaceholder.typicode.com/posts");
+    },
+  },
+});
 
- }
-})
-
-function fetchPosts3(){
-  api.get("posts")
+function fetchPosts3() {
+  api.get("posts");
 }
 
+// window.notification.show({
+//   title: " Hello Vue School",
+//   body: "Nice To meeey You Inside",
+// });
 
+// const notification = new Notification("Hello Vue Scholl", {
 
+//   body: "Nice To meeey You Inside",
+// });
 </script>
 
 <template>
@@ -69,7 +100,7 @@ function fetchPosts3(){
     <div class="col-xs-12 col-sm-6 col-lg-4">
       <q-select
         v-model="locale"
-        :options="['en-US','de']"
+        :options="['en-US', 'de']"
         label="language"
         filled
         class="ma-lg"

@@ -1,28 +1,24 @@
 <script setup>
 import { Geolocation } from "@capacitor/geolocation";
 import { ref } from "vue";
+import { mdiMap } from "@quasar/extras/mdi-v7";
 
-const coordsQuery = ref('')
+const coordsQuery = ref("");
+
 async function getCurrentLocation() {
+  await Geolocation.checkPermissions();
+  const position = await Geolocation.getCurrentPosition();
+  position.coords.latitude = -25.3492;
+  position.coords.longitude = 131.0346;
 
-  await Geolocation.checkPermissions()
-
-  const position = await getCurrentLocation()
-
-  position.coords.latitude = -25.3492
-  position.coords.longitude = 131.0346
-
-  coordsQuery.value =`${position.coords.latitude},${position.coords.longitude}`
-
-  console.log(position)
-
-
+  coordsQuery.value = `${position.coords.latitude},${position.coords.longitude}`;
+  console.log(position);
 }
 </script>
 <template>
   <q-page>
     <q-btn
-      label="Get Current Geolocation"
+      label="Get Current Location"
       @click="getCurrentLocation()"
     />
     <q-btn

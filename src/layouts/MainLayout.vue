@@ -49,7 +49,7 @@ function toggleLeftDrawer() {
       </q-list>
       <q-list>
         <q-item :to="{ name: 'geolocation' }">
-          <q-item-section>GeoLocation cd ..</q-item-section>
+          <q-item-section>Geolocation </q-item-section>
         </q-item>
       </q-list>
     </q-drawer>

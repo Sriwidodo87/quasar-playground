@@ -27,3 +27,12 @@
  *   }
  * }
  */
+// import { contextBridge} from 'electron'
+
+
+// contextBridge.exposeInMainWorld('notification',{
+//  show: ({ title, body }) => {
+//  console.log( { title, body });
+//  }
+// })
+
