@@ -1,5 +1,11 @@
 <script setup>
-import { mdiBook, mdiEmail, mdiFileDocument, mdiPlus } from "@quasar/extras/mdi-v7";
+import {
+  mdiBook,
+  mdiEmail,
+  mdiFileDocument,
+  mdiPlus,
+  mdiInformationBoxOutline,
+} from "@quasar/extras/mdi-v7";
 import { ref } from "vue";
 
 const showDialog = ref(false);
@@ -46,8 +52,16 @@ const showDialog = ref(false);
       </q-fab>
     </q-page-sticky> -->
 
-    <q-spinner-hearts color="primary" size="xl">
-      <!--  -->
-    </q-spinner-hearts>
+    <!-- <q-spinner-hearts color="primary" size="xl" /> -->
+    <q-banner class="bg-secondary text-white">
+      <template #avatar>
+        <q-avatar color="white" text-color="grey-10" :icon="mdiInformationBoxOutline" />
+      </template>
+      We can't save uur friend until you sign in ...
+      <template #action>
+        <q-btn label="Sign In" color="white" text-color="grey-10" />
+        <q-btn label="Dismiss" flat color="white" text-color="grey-10" />
+      </template>
+    </q-banner>
   </q-page>
 </template>
