@@ -6,6 +6,8 @@ import {
   mdiPlus,
   mdiInformationBoxOutline,
   mdiFormatFont,
+  mdiHome,
+  mdiArrowRight,
 } from "@quasar/extras/mdi-v7";
 import { ref } from "vue";
 const content = ref("");
@@ -14,8 +16,16 @@ const showDialog = ref(false);
 
 <template>
   <q-page padding>
+    <q-breadcrumbs>
+      <template #separator>
+        <q-icon size="1.2pm" color="blue-grey-10" :name="mdiArrowRight" />
+      </template>
+      <q-breadcrumbs-el label="Home" :icon="mdiHome" />
+      <q-breadcrumbs-el label="Components" :icon="mdiwidgets" />
+      <q-breadcrumbs-el label="breadcrumbs" />
+    </q-breadcrumbs>
     <!-- <pre>{{ content }}</pre> -->
-    <q-editor
+    <!-- <q-editor
       v-model="content"
       toolbar-rounded
       content-class="bg-amber-3"
@@ -27,7 +37,7 @@ const showDialog = ref(false);
         ['bold', 'italic', 'underline'],
         [{ icon: mdiFormatFont, options: ['p', 'h3', 'h4', 'h5', 'h6', 'code'] }],
       ]"
-    />
+    /> -->
 
     <!--  <q-intersection
       v-for="index in 400"
