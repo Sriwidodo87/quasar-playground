@@ -19,7 +19,7 @@ export default {
         'last 4 iOS versions'
       ]
     }),
-    tailwind()
+    // tailwind()
 
 
     // https://github.com/elchininet/postcss-rtlcss

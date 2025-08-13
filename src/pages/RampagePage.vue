@@ -5,22 +5,38 @@ import {
   mdiFileDocument,
   mdiPlus,
   mdiInformationBoxOutline,
+  mdiFormatFont,
 } from "@quasar/extras/mdi-v7";
 import { ref } from "vue";
-
+const content = ref("");
 const showDialog = ref(false);
 </script>
 
 <template>
-  <q-page padding class="row justify-center item-start q-gutter-lg">
-    <q-intersection
+  <q-page padding>
+    <!-- <pre>{{ content }}</pre> -->
+    <q-editor
+      v-model="content"
+      toolbar-rounded
+      content-class="bg-amber-3"
+      toolbar-bg="amber-10"
+      toolbar-text-color="white"
+      style="max-width: 600px"
+      class="full-width"
+      :toolbar="[
+        ['bold', 'italic', 'underline'],
+        [{ icon: mdiFormatFont, options: ['p', 'h3', 'h4', 'h5', 'h6', 'code'] }],
+      ]"
+    />
+
+    <!--  <q-intersection
       v-for="index in 400"
       :key="index"
       style="width: 200px; height: 300px"
       transition="scale"
     >
       <img src="https://picsum.photos/id/237/200/300" />
-    </q-intersection>
+    </q-intersection> -->
     <!-- <q-circular-progress
       :value="100"
       :min="0"
