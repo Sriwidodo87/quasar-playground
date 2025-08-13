@@ -12,18 +12,31 @@ import {
 import { ref } from "vue";
 const content = ref("");
 const showDialog = ref(false);
+const slide = ref(1);
 </script>
 
 <template>
   <q-page padding>
-    <q-breadcrumbs>
+    <q-carousel v-model="slide" swipeable animated infinite thumbnails>
+      <q-carousel-slide :name="1" img-src="https://picsum.photos/200/100">
+        <div
+          class="absolute-top flex flex-center q-pa-lg"
+          style="background-color: rgba(0, 0, 0, 0.2)"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit
+        </div>
+      </q-carousel-slide>
+      <q-carousel-slide :name="2" img-src="https://picsum.photos/200/101" />
+      <q-carousel-slide :name="3" img-src="https://picsum.photos/200/102" />
+    </q-carousel>
+    <!--   <q-breadcrumbs>
       <template #separator>
         <q-icon size="1.2pm" color="blue-grey-10" :name="mdiArrowRight" />
       </template>
       <q-breadcrumbs-el label="Home" :icon="mdiHome" />
       <q-breadcrumbs-el label="Components" :icon="mdiwidgets" />
       <q-breadcrumbs-el label="breadcrumbs" />
-    </q-breadcrumbs>
+    </q-breadcrumbs> -->
     <!-- <pre>{{ content }}</pre> -->
     <!-- <q-editor
       v-model="content"
