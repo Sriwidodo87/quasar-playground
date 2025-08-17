@@ -8,6 +8,7 @@ import {
   mdiFormatFont,
   mdiHome,
   mdiArrowRight,
+  mdiMinus,
 } from "@quasar/extras/mdi-v7";
 import { api } from "src/boot/wretch";
 import { ref } from "vue";
@@ -22,17 +23,81 @@ async function getTodos() {
 
 }
 getTodos()
-const selected = ref([])
+// const selected = ref([])
+
+const columns=[
+  {
+    name:'expand',
+    label:'Expand',
+    align:'center'
+  },
+  {
+    name:'title',
+    field:'title',
+    label:'Title',
+    align:'left'
+  },
+  {
+    name:'completed',
+    field:'completed',
+    label:'Completed',
+    align:'left'
+  }
+]
+
+const expanded = ref([])
 </script>
 
 <template>
   <q-page padding>
-    <pre> {{ selected }}</pre>
     <q-table
-      v-model:selected="selected"
+      v-model:expanded="expanded"
+      :columns
       :rows="todos"
-      selection="multiple"
-    />
+    >
+      <template
+        #body="scope"
+      >
+        <q-tr :props="scope">
+          <q-td
+            key="expand"
+            :props="scope"
+          >
+            <q-btn
+              size="sm"
+              round
+              flat
+              :icon="scope.expand ? mdiMinus : mdiPlus"
+
+              @click="scope.expand = !scope.expand"
+            />
+          </q-td>
+          <q-td
+            key="title"
+            :props="scope"
+          >
+            {{ scope.row.title }}
+          </q-td>
+
+          <q-td
+            key="completed"
+            :props="scope"
+          >
+            <q-checkbox
+              v-model="scope.row.completed"
+            />
+          </q-td>
+        </q-tr>
+        <q-tr
+          v-show="scope.expand"
+          :props="scope"
+        >
+          <q-td colspan="100%">
+            <pre>{{ scope.row }}</pre>
+          </q-td>
+        </q-tr>
+      </template>
+    </q-table>
     <!--   <q-carousel
       v-model="slide"
       swipeable
