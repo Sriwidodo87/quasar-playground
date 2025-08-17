@@ -9,16 +9,41 @@ import {
   mdiHome,
   mdiArrowRight,
 } from "@quasar/extras/mdi-v7";
+import { api } from "src/boot/wretch";
 import { ref } from "vue";
 const content = ref("");
 const showDialog = ref(false);
-const slide = ref(1);
+//const slide = ref(1);
+const todos = ref([])
+
+
+async function getTodos() {
+  todos.value = await api.get('todos').json()
+
+}
+getTodos()
+const selected = ref([])
 </script>
 
 <template>
   <q-page padding>
-    <q-carousel v-model="slide" swipeable animated infinite thumbnails>
-      <q-carousel-slide :name="1" img-src="https://picsum.photos/200/100">
+    <pre> {{ selected }}</pre>
+    <q-table
+      v-model:selected="selected"
+      :rows="todos"
+      selection="multiple"
+    />
+    <!--   <q-carousel
+      v-model="slide"
+      swipeable
+      animated
+      infinite
+      thumbnails
+    >
+      <q-carousel-slide
+        :name="1"
+        img-src="https://picsum.photos/900/600"
+      >
         <div
           class="absolute-top flex flex-center q-pa-lg"
           style="background-color: rgba(0, 0, 0, 0.2)"
@@ -26,9 +51,15 @@ const slide = ref(1);
           Lorem ipsum dolor sit amet, consectetur adipiscing elit
         </div>
       </q-carousel-slide>
-      <q-carousel-slide :name="2" img-src="https://picsum.photos/200/101" />
-      <q-carousel-slide :name="3" img-src="https://picsum.photos/200/102" />
-    </q-carousel>
+      <q-carousel-slide
+        :name="2"
+        img-src="https://picsum.photos/900"
+      />
+      <q-carousel-slide
+        :name="3"
+        img-src="https://picsum.photos/901"
+      />
+    </q-carousel> -->
     <!--   <q-breadcrumbs>
       <template #separator>
         <q-icon size="1.2pm" color="blue-grey-10" :name="mdiArrowRight" />
