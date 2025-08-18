@@ -9,6 +9,8 @@ import {
   mdiHome,
   mdiArrowRight,
   mdiMinus,
+  mdiCalendar,
+  mdiClock,
 } from "@quasar/extras/mdi-v7";
 import { api } from "src/boot/wretch";
 import { ref } from "vue";
@@ -46,11 +48,62 @@ const columns=[
 ]
 
 const expanded = ref([])
+
+const dateTime = ref()
+const dateTimeMask='YYYY-MM-DD HH:mm'
 </script>
 
 <template>
   <q-page padding>
-    <q-table
+    <q-input
+      v-model="dateTime"
+      filled
+      label="Date Time"
+    >
+      <template #prepend>
+        <q-icon
+          :name="mdiCalendar"
+          class="cursor-pointer"
+        >
+          <q-popup-proxy cover>
+            <q-date
+              v-model="dateTime"
+              :mask="dateTimeMask"
+            >
+              <q-btn
+                v-close-popup
+                label="Close"
+                class="full-width"
+                color="primary"
+                unelevated
+              />
+            </q-date>
+          </q-popup-proxy>
+        </q-icon>
+      </template>
+      <template #append>
+        <q-icon
+          :name="mdiClock"
+          class="cursor-pointer"
+        >
+          <q-popup-proxy cover>
+            <q-time
+              v-model="dateTime"
+              :mask="dateTimeMask"
+            >
+              <q-btn
+                v-close-popup
+                label="Close"
+                class="full-width"
+                color="primary"
+                unelevated
+              />
+            </q-time>
+          </q-popup-proxy>
+        </q-icon>
+      </template>
+    </q-input>
+    <!--  <q-table
       v-model:expanded="expanded"
       :columns
       :rows="todos"
@@ -97,7 +150,7 @@ const expanded = ref([])
           </q-td>
         </q-tr>
       </template>
-    </q-table>
+    </q-table> -->
     <!--   <q-carousel
       v-model="slide"
       swipeable
