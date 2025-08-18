@@ -51,11 +51,51 @@ const expanded = ref([])
 
 const dateTime = ref()
 const dateTimeMask='YYYY-MM-DD HH:mm'
+
+const  refreshing = ref(false)
+function refresh () {
+
+  refreshing.value = true
+  setTimeout(()=>
+{
+  refreshing.value= false
+
+},1500)
+}
 </script>
 
 <template>
   <q-page padding>
-    <q-input
+    <q-card
+      class="my-card"
+      style="max-width: 300px;"
+    >
+      <q-card-section>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit
+      </q-card-section>
+
+      <q-card-action>
+        <q-btn
+          flat
+          label="refreshing"
+          :loading="refreshing"
+          @click="refresh()"
+        />
+      </q-card-action>
+      <q-inner-loading :showing="refreshing">
+        <q-spinner-gears
+          size="50px"
+          color="primary"
+        />
+      </q-inner-loading>
+    </q-card>
+  <!--   <q-pull-to-refresh
+      color="primary"
+      @refresh="refresh"
+    >
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium praesentium, aliquam dolorum aliquid sint ipsam minima ut minus hic quam odio sunt nesciunt! Voluptas tempora deleniti quaerat doloribus eaque magnam!
+    </q-pull-to-refresh> -->
+    <!-- <q-input
       v-model="dateTime"
       filled
       label="Date Time"
@@ -102,7 +142,7 @@ const dateTimeMask='YYYY-MM-DD HH:mm'
           </q-popup-proxy>
         </q-icon>
       </template>
-    </q-input>
+    </q-input> -->
     <!--  <q-table
       v-model:expanded="expanded"
       :columns
