@@ -62,11 +62,22 @@ function refresh () {
 
 },1500)
 }
+
+const visible = ref(false)
 </script>
 
 <template>
   <q-page padding>
-    <q-card
+    <q-toggle
+      v-model="visible"
+      label="Visible"
+    />
+    <q-slide-transition>
+      <div v-show="visible">
+        <img src="https://picsum.photos/600">
+      </div>
+    </q-slide-transition>
+    <!-- <q-card
       class="my-card"
       style="max-width: 300px;"
     >
@@ -88,7 +99,7 @@ function refresh () {
           color="primary"
         />
       </q-inner-loading>
-    </q-card>
+    </q-card> -->
   <!--   <q-pull-to-refresh
       color="primary"
       @refresh="refresh"
