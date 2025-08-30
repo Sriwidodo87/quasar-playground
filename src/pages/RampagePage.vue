@@ -76,11 +76,40 @@ function refresh () {
 }
 
 const visible = ref(false)
+
+const tabs =[
+  {label:'Emails'},
+  {label:'Contacts'},
+  {label:'Documents'}
+]
+
+const currentTab= ref('Emails')
 </script>
 
 <template>
   <q-page padding>
-    <q-infinite-scroll
+    <q-tabs v-model="currentTab">
+      <q-tab
+        v-for="tab in tabs"
+        :key="tab.label"
+        :label="tab.label"
+        :name="tab.label"
+      />
+    </q-tabs>
+    <q-tab-panels
+      v-model="currentTab"
+      animated
+    >
+      <q-tab-panel
+        v-for="tab in tabs"
+        :key="tab.label"
+        :label="tab.label"
+        :name="tab.label"
+      >
+        <pre>{{ tab }}</pre>
+      </q-tab-panel>
+    </q-tab-panels>
+    <!--    <q-infinite-scroll
       :disable="posts.length >=20"
       :offset="250"
       @load="async(Index,done)=>{
@@ -113,7 +142,7 @@ const visible = ref(false)
           </q-card-section>
         </q-card>
       </div>
-    </q-infinite-scroll>
+    </q-infinite-scroll> -->
     <!--    <q-card style="width: 400px;">
       <q-scroll-area style="height:300px;">
         <q-card-section>
