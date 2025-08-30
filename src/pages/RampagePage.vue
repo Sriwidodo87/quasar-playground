@@ -71,7 +71,18 @@ const visible = ref(false)
 
 <template>
   <q-page padding>
-    <q-list bordered>
+    <q-card style="width: 400px;">
+      <q-scroll-area style="height:300px;">
+        <q-card-section>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse architecto necessitatibus, deserunt provident consequuntur fuga ratione quibusdam odio quasi eligendi aliquam molestiae magnam nesciunt deleniti perferendis sapiente pariatur voluptatibus explicabo!
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse architecto necessitatibus, deserunt provident consequuntur fuga ratione quibusdam odio quasi eligendi aliquam molestiae magnam nesciunt deleniti perferendis sapiente pariatur voluptatibus explicabo!
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse architecto necessitatibus, deserunt provident consequuntur fuga ratione quibusdam odio quasi eligendi aliquam molestiae magnam nesciunt deleniti perferendis sapiente pariatur voluptatibus explicabo!
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse architecto necessitatibus, deserunt provident consequuntur fuga ratione quibusdam odio quasi eligendi aliquam molestiae magnam nesciunt deleniti perferendis sapiente pariatur voluptatibus explicabo!
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse architecto necessitatibus, deserunt provident consequuntur fuga ratione quibusdam odio quasi eligendi aliquam molestiae magnam nesciunt deleniti perferendis sapiente pariatur voluptatibus explicabo!
+        </q-card-section>
+      </q-scroll-area>
+    </q-card>
+  <!--   <q-list bordered>
       <q-slide-item
         right-color="red"
         left-color="grey"
@@ -102,7 +113,7 @@ const visible = ref(false)
           </q-item-section>
         </q-item>
       </q-slide-item>
-    </q-list>
+    </q-list> -->
     <!--  <q-toggle
       v-model="visible"
       label="Visible"
