@@ -11,6 +11,9 @@ import {
   mdiMinus,
   mdiCalendar,
   mdiClock,
+  mdiFlag,
+  mdiDelete,
+  mdiCheck,
 } from "@quasar/extras/mdi-v7";
 import { api } from "src/boot/wretch";
 import { ref } from "vue";
@@ -68,7 +71,39 @@ const visible = ref(false)
 
 <template>
   <q-page padding>
-    <q-toggle
+    <q-list bordered>
+      <q-slide-item
+        right-color="red"
+        left-color="grey"
+        @left="({reset})=>reset()"
+        @right="({reset})=>reset()"
+      >
+        <template #right>
+          <q-icon :name="mdiDelete" />
+        </template>
+        <template #left>
+          <q-icon :name="mdiCheck" />
+        </template>
+        <q-item>
+          <q-item-section avatar>
+            <q-icon
+              color="blue"
+              :name="mdiEmail"
+            />
+          </q-item-section>
+          <q-item-section> hey bob, I have mews</q-item-section>
+          <q-item-section side>
+            <q-chip
+              :icon="mdiFlag"
+              label="Flagged"
+              color="indigo"
+              text-color="white"
+            />
+          </q-item-section>
+        </q-item>
+      </q-slide-item>
+    </q-list>
+    <!--  <q-toggle
       v-model="visible"
       label="Visible"
     />
@@ -77,6 +112,7 @@ const visible = ref(false)
         <img src="https://picsum.photos/600">
       </div>
     </q-slide-transition>
+    <h1> TEST PAGE</h1> -->
     <!-- <q-card
       class="my-card"
       style="max-width: 300px;"
