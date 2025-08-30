@@ -21,6 +21,7 @@ const content = ref("");
 const showDialog = ref(false);
 //const slide = ref(1);
 const todos = ref([])
+const posts = ref([])
 
 
 async function getTodos() {
@@ -30,6 +31,14 @@ async function getTodos() {
 getTodos()
 // const selected = ref([])
 
+
+async function getPosts(page) {
+  const data = await api
+  .get(`posts?_page=${page}`)
+  .json()
+  posts.value =[...posts.value,...data]
+}
+ getPosts(1)
 const columns=[
   {
     name:'expand',
@@ -71,7 +80,41 @@ const visible = ref(false)
 
 <template>
   <q-page padding>
-    <q-card style="width: 400px;">
+    <q-infinite-scroll
+      :disable="posts.length >=20"
+      :offset="250"
+      @load="async(Index,done)=>{
+        await getPosts(Index+1)
+        done()
+      }"
+    >
+      <template #loading>
+        <div class=" flex flex-center">
+          <q-spinner
+            color="primary"
+            size="40px"
+          />
+        </div>
+      </template>
+
+      <div
+        v-for="post in posts"
+        :key="post.id"
+        class="q-mb-lg"
+      >
+        <q-card>
+          <q-card-section>
+            <h2 class="q-my-none">
+              {{ post.title }}
+            </h2>
+          </q-card-section>
+          <q-card-section class="text-bodyl text-blue-grey-10">
+            {{ post.body }}
+          </q-card-section>
+        </q-card>
+      </div>
+    </q-infinite-scroll>
+    <!--    <q-card style="width: 400px;">
       <q-scroll-area style="height:300px;">
         <q-card-section>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse architecto necessitatibus, deserunt provident consequuntur fuga ratione quibusdam odio quasi eligendi aliquam molestiae magnam nesciunt deleniti perferendis sapiente pariatur voluptatibus explicabo!
@@ -81,7 +124,7 @@ const visible = ref(false)
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse architecto necessitatibus, deserunt provident consequuntur fuga ratione quibusdam odio quasi eligendi aliquam molestiae magnam nesciunt deleniti perferendis sapiente pariatur voluptatibus explicabo!
         </q-card-section>
       </q-scroll-area>
-    </q-card>
+    </q-card> -->
   <!--   <q-list bordered>
       <q-slide-item
         right-color="red"
